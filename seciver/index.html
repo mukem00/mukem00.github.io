@@ -66,7 +66,14 @@
         } else {
           clearInterval(countdown);
           status.textContent = "Google Play açılıyor...";
-          window.location.assign(playUrl);
+          const intentUrl =
+  "intent://details?id=tr.com.mkemalyilmaz.seciver" +
+  "#Intent;scheme=market;package=com.android.vending;" +
+  "S.browser_fallback_url=" +
+  encodeURIComponent(playUrl) +
+  ";end";
+
+window.location.href = intentUrl;
         }
       }, 1000);
     } else if (ios) {
